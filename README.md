@@ -23,3 +23,11 @@ $ npx sequelize init
     │   └── seeders
     └── app.js
 ```
+
+
+### Model
+
+```bash
+$ npx sequelize model:generate --name Task --attributes taskName: string
+$ npx sequelize model:generate --name User --attributes name:string
+```
