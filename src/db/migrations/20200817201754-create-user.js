@@ -36,6 +36,8 @@ module.exports = {
 				paranoid: true,
 				freezeTableName: true,
 				tableName: 'users',
+				charset: 'utf8',
+				collate: 'utf8_general_ci',
 			},
 		);
 	},

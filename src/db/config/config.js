@@ -1,14 +1,21 @@
-const path = require('path');
-const storage = path.join(__dirname, '../../../db.sqlite');
+// const path = require('path');
+// const storage = path.join(__dirname, '../../../db.sqlite');
 
 module.exports = {
 	development: {
-		dialect: 'sqlite',
-		storage,
+		username: 'root',
+		password: '12345',
+		database: 'express',
+		host: '127.0.0.1',
+		dialect: 'mysql',
 	},
 	test: {
-		dialect: 'sqlite',
-		storage: ':memory',
+		username: 'root',
+		password: '12345',
+		database: 'express_test',
+		host: '127.0.0.1',
+		dialect: 'mysql',
+		logging: false,
 	},
 	production: {
 		username: 'root',
