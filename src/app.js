@@ -1,12 +1,12 @@
 const express = require('express');
 const cors = require('cors');
-const bcrypt = require('bcrypt');
+// const bcrypt = require('bcrypt');
 const passport = require('passport');
 const session = require('express-session');
 const cookie = require('cookie-parser');
 const morgan = require('morgan');
 // DB
-const db = require('./db/models');
+// const db = require('./db/models');
 const passportConfig = require('./passport');
 const app = express();
 
@@ -15,7 +15,7 @@ const userRouter = require('./routes/user');
 // 모델의 정수를 수정하면 자동으로 반영되지 않는 문제가 발생한다.
 // force: true를 주면 마이그레이션 없이 디비를 다시 만들 수 있다.
 // 데이터가 있다면 마이그레이션은 필수
-db.sequelize.sync();
+// db.sequelize.sync();
 passportConfig(); // 서버가 시작될 때 passport 동작시킴
 
 app.use(morgan('dev'));
@@ -39,11 +39,8 @@ app.use(passport.session()); // 사용자가 로그인한 정보를 기록할 �
 
 // routing
 app.use('/user', userRouter);
-
 app.get('/', (req, res) => {
 	return res.status(200).json({ message: 'hello world' });
 });
 
-app.listen(3000, () => {
-	console.log('Server running at localhost:3000');
-});
+module.exports = app;
